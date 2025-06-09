@@ -1,0 +1,458 @@
+/* Impor Font dari Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+:root {
+    /* Palet Warna Baru */
+    --bistre: #391E10;
+    --kobicha: #734128;
+    --lion: #C7A07A;
+    --dun: #E2CEB1;
+    --ivory: #FDFCE8;
+    --white-neutral: #FFFFFF;
+
+    /* Palet Warna Dasar (Tema Terang) */
+    --primary-bg: var(--ivory);
+    --secondary-bg: var(--ivory);
+    --tertiary-bg: var(--white-neutral);
+    --primary-text: var(--bistre);
+    --border-color: var(--dun);
+
+    /* Warna Header (Tema Terang) */
+    --header-bg: var(--white-neutral);
+    --header-text-title: var(--kobicha);
+    --header-btn-color: var(--bistre);
+    --header-btn-hover-bg: var(--dun);
+    --header-btn-hover-text: var(--bistre);
+
+    /* Warna Tombol Alih Bahasa (Gaya Solid/Donasi) */
+    --lang-toggle-btn-bg: var(--kobicha);
+    --lang-toggle-btn-text: var(--ivory);
+    --lang-toggle-btn-hover-bg: var(--lion);
+    --lang-toggle-btn-hover-text: var(--bistre);
+
+    /* Warna Tombol Kategori (Tema Terang) */
+    --category-button-bg: var(--white-neutral);
+    --category-button-text: var(--kobicha);
+    --category-button-border: var(--kobicha);
+    --category-button-hover-bg: var(--dun);
+    --category-button-hover-text: var(--bistre);
+    --category-button-active-bg: var(--kobicha);
+    --category-button-active-text: var(--ivory);
+
+    /* Tombol Kontrol Utama (Lihat Jawaban, Berikutnya) */
+    --controls-button-bg: var(--kobicha);
+    --controls-button-text: var(--ivory);
+    --controls-button-hover-bg: var(--lion);
+    --controls-button-hover-text: var(--bistre);
+
+
+    /* Font Families */
+    --font-family-osmanlica: 'Amiri', 'Times New Roman', serif;
+    --font-family-latin: 'Outfit', 'Arial', sans-serif;
+
+    /* Ukuran Konsisten Tombol Header */
+    --header-button-height: 38px;
+    --header-button-min-width: 40px;
+    --header-button-padding-x: 10px;
+    --lang-button-padding-x: 18px;
+
+
+    --header-button-height-mobile: 34px;
+    --header-button-min-width-mobile: 36px;
+    --header-button-padding-x-mobile: 8px;
+    --lang-button-padding-x-mobile: 14px;
+}
+
+[data-theme="dark"] {
+    /* Palet Gelap */
+    --primary-bg: var(--bistre);
+    --secondary-bg: var(--bistre);
+    --tertiary-bg: #2a180c;
+    --primary-text: var(--ivory);
+    --border-color: var(--kobicha);
+
+    /* Header Gelap */
+    --header-bg: var(--bistre);
+    --header-text-title: var(--lion);
+    --header-btn-color: var(--ivory);
+    --header-btn-hover-bg: var(--kobicha);
+    --header-btn-hover-text: var(--ivory);
+
+    /* Tombol Alih Bahasa Gelap */
+    --lang-toggle-btn-bg: var(--lion);
+    --lang-toggle-btn-text: var(--bistre);
+    --lang-toggle-btn-hover-bg: var(--dun);
+    --lang-toggle-btn-hover-text: var(--bistre);
+
+    /* Tombol Kategori Gelap */
+    --category-button-bg: var(--kobicha);
+    --category-button-text: var(--ivory);
+    --category-button-border: var(--kobicha);
+    --category-button-hover-bg: var(--lion);
+    --category-button-hover-text: var(--bistre);
+    --category-button-active-bg: var(--lion);
+    --category-button-active-text: var(--bistre);
+
+    /* Tombol Kontrol Utama Gelap */
+    --controls-button-bg: var(--lion);
+    --controls-button-text: var(--bistre);
+    --controls-button-hover-bg: var(--dun);
+    --controls-button-hover-text: var(--bistre);
+}
+
+body {
+    margin: 0;
+    background-color: var(--primary-bg);
+    color: var(--primary-text);
+    line-height: 1.8;
+    transition: background-color 0.3s, color 0.3s;
+    font-family: var(--font-family-latin);
+}
+
+html[lang="ota"] body {
+    font-family: var(--font-family-osmanlica);
+}
+
+html[lang="ota"] .header-btn,
+html[lang="ota"] .category-btn,
+html[lang="ota"] .controls button,
+html[lang="ota"] #questionText,
+html[lang="ota"] #answerText {
+    font-family: var(--font-family-osmanlica);
+}
+
+html[lang="id"] .header-btn,
+html[lang="id"] .category-btn,
+html[lang="id"] .controls button,
+html[lang="id"] #questionText,
+html[lang="id"] #answerText {
+    font-family: var(--font-family-latin);
+}
+
+/* --- HEADER --- */
+header {
+    background-color: var(--header-bg);
+    padding: 10px 15px;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 1px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    z-index: 1001;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.header-controls-left {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+header h1#mainTitle {
+    font-weight: normal;
+    color: var(--header-text-title);
+    font-size: 1.8em;
+    margin: 0;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+html[lang="id"] header h1#mainTitle {
+    font-size: 1.6em;
+}
+
+#darkModeToggle {
+   justify-self: end;
+}
+
+.header-btn {
+    background: none;
+    border: 1px solid var(--header-btn-color);
+    color: var(--header-btn-color);
+    min-width: var(--header-button-min-width);
+    padding: 0 var(--header-button-padding-x);
+    height: var(--header-button-height);
+    box-sizing: border-box;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+    white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1em;
+    line-height: var(--header-button-height);
+}
+
+.header-btn:hover {
+    background-color: var(--header-btn-hover-bg);
+    color: var(--header-btn-hover-text);
+    border-color: var(--header-btn-hover-bg);
+}
+
+/* Styling Khusus Tombol DarkMode (SVG atau Teks) */
+#darkModeToggle {
+    padding: 0; /* Reset padding agar ukuran pas dengan ikon */
+    min-width: var(--header-button-min-width); /* Pastikan area klik cukup besar */
+}
+#darkModeToggle svg {
+    width: 1.2em;
+    height: 1.2em;
+    /* fill: currentColor; -- SVG dari user tidak ada fill, jadi stroke yang diwarnai */
+    stroke: currentColor;
+}
+
+/* --- ATURAN BARU UNTUK MENAMPILKAN IKON YANG BENAR --- */
+/* Default (Light Mode): Tampilkan Matahari, Sembunyikan Bulan */
+#darkModeToggle .moon-icon {
+    display: none;
+}
+#darkModeToggle .sun-icon {
+    display: block;
+}
+
+/* Dark Mode: Sembunyikan Matahari, Tampilkan Bulan */
+[data-theme="dark"] #darkModeToggle .sun-icon {
+    display: none;
+}
+[data-theme="dark"] #darkModeToggle .moon-icon {
+    display: block;
+}
+/* --- AKHIR ATURAN BARU --- */
+
+
+/* Styling Khusus Tombol Ganti Bahasa */
+#languageToggleBtn {
+    background-color: var(--lang-toggle-btn-bg);
+    color: var(--lang-toggle-btn-text);
+    border: none;
+    padding: 0 var(--lang-button-padding-x);
+    min-width: auto;
+    height: var(--header-button-height);
+    box-sizing: border-box;
+    cursor: pointer;
+    border-radius: 6px;
+    font-weight: 700;
+    font-family: var(--font-family-latin);
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+    transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;
+    white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9em;
+    line-height: var(--header-button-height);
+}
+
+#languageToggleBtn:hover {
+    background-color: var(--lang-toggle-btn-hover-bg);
+    color: var(--lang-toggle-btn-hover-text);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+}
+
+/* Tombol Hamburger */
+#hamburgerBtn {
+    font-size: 1.2em;
+    padding: 0;
+    min-width: var(--header-button-min-width);
+}
+
+
+/* --- CONTAINER & SIDEBAR --- */
+.container { display: flex; }
+aside#sidebar {
+    width: 280px; background-color: var(--secondary-bg); padding: 20px;
+    height: calc(100vh - 60px);
+    overflow-y: auto; box-sizing: border-box; position: sticky;
+    top: 60px;
+    transition: background-color 0.3s, transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+html[dir="rtl"] aside#sidebar { border-left: 1px solid var(--border-color); }
+html[dir="ltr"] aside#sidebar { border-right: 1px solid var(--border-color); }
+aside#sidebar nav { display: flex; flex-direction: column; }
+
+/* --- TOMBOL KATEGORI --- */
+.category-btn {
+    background-color: var(--category-button-bg);
+    color: var(--category-button-text);
+    border: 1px solid var(--category-button-border);
+    padding: 12px 15px; margin-bottom: 10px; cursor: pointer; font-size: 1.1em;
+    border-radius: 4px; transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+    font-weight: normal;
+}
+html[dir="rtl"] .category-btn { text-align: right; }
+html[dir="ltr"] .category-btn { text-align: left; }
+
+.category-btn:hover {
+    background-color: var(--category-button-hover-bg);
+    color: var(--category-button-hover-text);
+    border-color: var(--category-button-hover-bg);
+    box-shadow: 0 1px 2px 0 rgba(0,0,0,0.1), 0 1px 3px 1px rgba(0,0,0,0.08);
+}
+
+.category-btn.active-category,
+.category-btn[data-category="all"] {
+    background-color: var(--category-button-active-bg);
+    color: var(--category-button-active-text);
+    font-weight: bold; border-color: transparent;
+}
+.category-btn[data-category="all"] { margin-top: 15px; }
+
+.category-btn[data-category="all"]:hover {
+     background-color: var(--category-button-hover-bg);
+     color: var(--category-button-hover-text);
+     border-color: var(--category-button-hover-bg);
+     opacity: 1;
+}
+
+
+/* --- KONTEN UTAMA (SOAL & JAWABAN) --- */
+main#mainContent {
+    flex-grow: 1; padding: 30px; display: flex; flex-direction: column; align-items: center;
+}
+#questionContainer, #answerContainer {
+    background-color: var(--tertiary-bg); padding: 25px; margin-bottom: 20px;
+    border-radius: 8px; width: 100%; max-width: 700px;
+    box-shadow: 0 2px 4px rgba(57, 30, 16, 0.1); /* Shadow dengan warna bistre */
+    min-height: 100px; box-sizing: border-box; border: 1px solid var(--border-color);
+}
+#answerContainer table {
+    width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 0.95em;
+}
+#answerContainer th, #answerContainer td {
+    border: 1px solid var(--border-color); padding: 8px 10px;
+}
+html[dir="rtl"] #answerContainer th, html[dir="rtl"] #answerContainer td { text-align: right; }
+html[dir="ltr"] #answerContainer th, html[dir="ltr"] #answerContainer td { text-align: left; }
+
+#answerContainer th {
+    background-color: var(--dun);
+    font-weight: bold;
+    color: var(--bistre);
+}
+[data-theme="dark"] #answerContainer th {
+    background-color: var(--kobicha);
+    color: var(--ivory);
+}
+
+
+#questionText, #answerText {
+    font-size: 1.4em; margin: 0; white-space: pre-line;
+    color: var(--primary-text);
+}
+html[dir="rtl"] #questionText, html[dir="rtl"] #answerText { text-align: right; }
+html[dir="ltr"] #questionText, html[dir="ltr"] #answerText { text-align: left; }
+
+#answerText span[lang="ar"][dir="rtl"] {
+    display: inline-block; font-family: var(--font-family-osmanlica);
+    font-size: 1.05em; line-height: 1.7; margin: 5px 0;
+    color: var(--primary-text);
+}
+
+/* --- TOMBOL KONTROL (Lihat Jawaban, Berikutnya) --- */
+.controls { display: flex; gap: 15px; }
+.controls button {
+    background-color: var(--controls-button-bg);
+    color: var(--controls-button-text);
+    border: none; padding: 12px 22px; font-size: 1em; border-radius: 6px;
+    cursor: pointer; transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;
+    text-transform: uppercase; font-weight: bold; box-shadow: 0 2px 4px rgba(57, 30, 16, 0.1);
+    font-family: var(--font-family-latin);
+}
+.controls button:hover:not(:disabled) {
+    background-color: var(--controls-button-hover-bg);
+    color: var(--controls-button-hover-text);
+    box-shadow: 0 4px 8px rgba(57, 30, 16, 0.15);
+}
+.controls button:disabled {
+    background-color: var(--dun);
+    color: var(--lion);
+    cursor: not-allowed;
+    opacity: 0.7; border: none; box-shadow: none;
+}
+[data-theme="dark"] .controls button:disabled {
+    background-color: var(--lion);
+    color: var(--dun);
+    opacity: 0.6;
+}
+
+
+/* --- RESPONSIVE - MOBILE --- */
+#hamburgerBtn { display: block; }
+@media (min-width: 769px) { #hamburgerBtn { display: none; } }
+
+@media (max-width: 768px) {
+    header {
+        padding: 8px 10px;
+        gap: 6px;
+    }
+    header h1#mainTitle { font-size: 1.3em !important; }
+    html[lang="id"] header h1#mainTitle { font-size: 1.2em !important; }
+
+    .header-btn {
+        padding: 0 var(--header-button-padding-x-mobile);
+        min-width: var(--header-button-min-width-mobile);
+        height: var(--header-button-height-mobile);
+        font-size: 0.9em;
+        line-height: var(--header-button-height-mobile);
+    }
+    
+    #languageToggleBtn {
+        font-size: 0.85em;
+        padding: 0 var(--lang-button-padding-x-mobile);
+        height: var(--header-button-height-mobile);
+        line-height: var(--header-button-height-mobile);
+    }
+
+    #darkModeToggle {
+        min-width: var(--header-button-min-width-mobile);
+        padding: 0;
+    }
+
+    #darkModeToggle svg {
+        width: 1.1em;
+        height: 1.1em;
+    }
+
+    #hamburgerBtn {
+        font-size: 1.1em;
+         min-width: var(--header-button-min-width-mobile);
+         padding: 0;
+    }
+
+    aside#sidebar {
+        position: fixed; left: 0; right: 0;
+        width: 100%; max-height: 55vh; background-color: var(--secondary-bg);
+        box-shadow: 0 -2px 8px rgba(57, 30, 16, 0.15);
+        border-top-left-radius: 16px; border-top-right-radius: 16px;
+        padding: 15px; padding-bottom: calc(15px + env(safe-area-inset-bottom));
+        box-sizing: border-box; overflow-y: auto; z-index: 1000;
+        transform: translateY(100%);
+        transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        height: auto; border-left: none; border-right: none; top: auto;
+        bottom: 0; 
+    }
+    aside#sidebar.open {
+        transform: translateY(0%);
+    }
+    aside#sidebar nav {
+        display: grid; grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)); gap: 8px;
+    }
+    aside#sidebar .category-btn {
+        font-size: 0.85em; padding: 8px 10px; margin-bottom: 0;
+    }
+    aside#sidebar .category-btn[data-category="all"] {
+        grid-column: 1 / -1; text-align: center; margin-top: 8px;
+    }
+    main#mainContent { padding: 15px; padding-bottom: 80px; }
+    #questionText, #answerText { font-size: 1.15em; }
+    #answerContainer th, #answerContainer td { font-size: 0.8em; padding: 5px; }
+    #answerText span[lang="ar"][dir="rtl"] { font-size: 1.0em; }
+    .controls button { padding: 10px 18px; font-size: 0.95em; }
+}

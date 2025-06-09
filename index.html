@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ota" dir="rtl">
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XC2MYWX8YP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-XC2MYWX8YP');
+</script>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="pageTitle">منار سواللری</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="header-controls-left">
+            <button id="hamburgerBtn" class="header-btn">☰</button>
+            <button id="languageToggleBtn" class="header-btn">ID</button>
+        </div>
+
+        <h1 id="mainTitle">منار سواللری</h1>
+
+        <button id="darkModeToggle" class="header-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="sun-icon"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="moon-icon"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+        </button>
+    </header>
+
+    <div class="container">
+        <aside id="sidebar">
+            <nav>
+                <button class="category-btn" data-category="1-18" data-lang-osmanlica="سواللر ١-١٨" data-lang-indonesia="Soal 1-18">سواللر ١-١٨</button>
+                <button class="category-btn" data-category="19-36" data-lang-osmanlica="سواللر ١٩-٣٦" data-lang-indonesia="Soal 19-36">سواللر ١٩-٣٦</button>
+                <button class="category-btn" data-category="37-54" data-lang-osmanlica="سواللر ٣٧-٥٤" data-lang-indonesia="Soal 37-54">سواللر ٣٧-٥٤</button>
+                <button class="category-btn" data-category="55-72" data-lang-osmanlica="سواللر ٥٥-٧٢" data-lang-indonesia="Soal 55-72">سواللر ٥٥-٧٢</button>
+                <button class="category-btn" data-category="definitions" data-lang-osmanlica="تعريفلر" data-lang-indonesia="Definisi-definisi">تعريفلر</button>
+                <button class="category-btn" data-category="all" data-lang-osmanlica="بتون سواللردن" data-lang-indonesia="Semua Soal">بتون سواللردن</button>
+            </nav>
+        </aside>
+
+        <main id="mainContent">
+            <div id="questionContainer">
+                <p id="questionText">بر كاتغورى سچڭ ویا \"بتون سواللردن\" دوکمەسنه باصڭ.</p>
+            </div>
+            <div id="answerContainer" style="display: none;">
+                <p id="answerText"></p>
+            </div>
+            <div class="controls">
+                <button id="showAnswerBtn" disabled>جوابی کور</button>
+                <button id="nextQuestionBtn" disabled>ایلری</button>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
